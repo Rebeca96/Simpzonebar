@@ -1,0 +1,330 @@
+@font-face {
+  font-family: "Simpsonfont";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Simpsonfont"), url(/css/Simpsonfont.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Akbar Plain";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Akbar  Plain"), url(/css/akbar.woff) format("woff");
+}
+
+:root {
+  --fuente-principal: "Simpsonfont", serif;
+  --fuente-sec: "Akbar Plain", serif;
+
+  --amarillo: #fbd22c;
+  --naranja: #fbab0d;
+  --celeste: #94d4f4;
+  --azul-nav: #34b1fc;
+  --azul: #175091;
+  --azul-apagado: #6c87b3;
+  --negro: #000000;
+  --gris: #bcb4bc;
+  --blanco: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*      Globales     */
+.contenedor {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuente-principal);
+}
+
+p {
+  font-family: var(--fuente-sec);
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+/*     Utilidades     */
+.centrar-texto {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+/*      Header      */
+.header {
+  background-color: var(--azul-nav);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--amarillo);
+}
+
+.barra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .contenedor {
+    width: min(90%, 100rem);
+  }
+
+  .barra {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.logo img {
+  width: 18rem;
+  height: 10rem;
+  margin: 2rem 2rem;
+}
+
+.navegacion {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.navegacion__enlace {
+  font-family: var(--fuente-sec);
+  font-size: 1.6rem;
+  color: var(--blanco);
+}
+
+.navegacion__enlace:hover,
+.navegacion__enlace:focus {
+  color: var(--naranja);
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .navegacion {
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  .navegacion__enlace {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navegacion {
+    gap: 7rem;
+  }
+
+  .navegacion__enlace {
+    font-size: 2.5rem;
+  }
+}
+
+/*     Presentacion    */
+.principal .contenedor {
+  width: 100%;
+  height: 30rem;
+  background-image: url(/img/25215-los-simpsons.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.presentacion__titulo {
+  font-size: 4rem;
+  color: var(--amarillo);
+  -webkit-text-stroke: 0.01px var(--negro);
+  padding-top: 12rem;
+  padding-left: 2rem;
+  text-align: left;
+  text-shadow: -0.1em 0.1em 0.1em rgb(37, 37, 37);
+}
+
+.presentacion__p {
+  font-size: 1.7rem;
+  margin-top: 5rem;
+  margin-left: 3rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .principal .contenedor {
+    height: 50rem;
+  }
+  .presentacion__titulo {
+    font-size: 8rem;
+    padding-top: 19rem;
+  }
+
+  .presentacion__p {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .principal .contenedor {
+    height: 60rem;
+  }
+  .presentacion__titulo {
+    font-size: 11rem;
+    padding-top: 20rem;
+  }
+
+  .presentacion__p {
+    font-size: 3rem;
+    margin-top: 7rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .presentacion__titulo {
+    font-size: 13rem;
+    padding-left: 9rem;
+  }
+}
+
+.tarjetas {
+  background: linear-gradient(to bottom, var(--azul), var(--azul-apagado));
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}
+.card {
+  width: 30rem;
+  height: auto;
+  margin: auto;
+}
+
+.card:hover {
+  width: 35rem;
+  transition: 300ms;
+}
+
+.card .cover {
+  width: 100%;
+  height: 40rem;
+  overflow: hidden;
+  position: relative;
+}
+.card .cover img {
+  width: 25rem;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 4rem;
+  z-index: 1;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.5));
+  transition: all 400ms;
+}
+
+.card:hover .cover img {
+  top: 0;
+  filter: none;
+}
+
+.card-3 .cover img {
+  margin-top: 8rem;
+}
+
+.card .img__back {
+  width: 100%;
+  height: 20rem;
+  position: absolute;
+  bottom: -8rem;
+  left: 0;
+  background-size: cover;
+  border-radius: 20px;
+  transition: all 300ms;
+}
+
+.card:nth-of-type(1) .img__back {
+  background-image: url(/img/1bg1.jpg);
+}
+
+.card:nth-of-type(2) .img__back {
+  background-image: url(/img/3bg3.jpg);
+}
+
+.card:nth-of-type(3) .img__back {
+  background-image: url(/img/2bg2.jpg);
+}
+
+.card:hover .img__back {
+  bottom: -40px;
+  transition: all 300ms;
+}
+
+.card .descripcion {
+  background-color: var(--blanco);
+  margin-top: -1rem;
+  padding: 2rem;
+  border-radius: 0px 0px 20px 20px;
+  transition: all 300ms;
+}
+
+.card:hover .descripcion {
+  padding: 4rem;
+}
+
+.card .descripcion h2 {
+  font-size: 2rem;
+}
+
+.card .descripcion h2,
+.card .descripcion p {
+  margin-top: 1rem;
+}
+
+.card .descripcion input {
+  padding: 1rem 4rem;
+  margin-top: 2rem;
+  border: none;
+  background-color: var(--naranja);
+  color: var(--blanco);
+  font-family: var(--fuente-sec);
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 300ms;
+}
+
+.card .descripcion input:hover {
+  background-color: var(--gris);
+}
+
+@media (min-width: 900px) {
+}
